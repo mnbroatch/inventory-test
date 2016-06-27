@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<script src="/bower_components/jquery/dist/jquery.min.js"></script>
+		<script src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script> 
+		<script src="/bower_components/bootstrap/js/button.js"></script>
+		<script src="/bower_components/angular/angular.js"></script>
+		<script src="/bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+		<script src="/js/module.js"></script>
+		<script src="/js/controllers.js"></script>
+		<script src="/js/services.js"></script>
+		<link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.min.css" media="all">
+		<link rel="stylesheet" href="/css/style.css" media="all"> 
+		<script src="/bower_components/angular-bootstrap/ui-bootstrap.min.js"></script>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body ng-app="inventoryApp" ng-controller="mainController">
+		<div class="container">
+
+
+
+			<h1>House Inventory</h1>
+
+			<div class="row">
+				<div class="col-sm-6">
+					<form  >
+						<div class="form-group" ng-submit='addItem(newItem)'>
+							<label>Name</label>
+							<input class="form-control" type="text" placeholder="Name of Item" ng-model='newItem.name' required>
+						</div>
+						<div class="form-group">
+							<label>Value</label>
+							<input class="form-control" type="number" placeholder="Value of Item" ng-model='newItem.value' step=".01" required>
+						</div>
+						<div class="btn-group">
+							<label class="btn btn-primary active" ng-model="newItem.room" uib-btn-radio="'bedroom'">Bedroom</label>
+							<label class="btn btn-primary" ng-model="newItem.room" uib-btn-radio="'bathroom'">Bathroom</label>
+							<label class="btn btn-primary" ng-model="newItem.room" uib-btn-radio="'dungeon'">Dungeon</label>
+						</div>
+						<button class="btn btn-primary" ng-click='addItem(newItem)'>Submit</button>
+						<!-- <button class="btn btn&#45;primary">Submit</button> -->
+					</form>
+				</div>
+			</div>
+
+
+
+			<div class="table-container">
+
+				<div class="view-buttons">
+					<h4>Change View</h4>
+					<label class="btn btn-primary active" ui-sref='main' >All</label>
+					<label class="btn btn-primary active" ui-sref='bedroom' >Bedroom</label>
+					<label class="btn btn-primary" ui-sref='bathroom' >Bathroom</label>
+					<label class="btn btn-primary" ui-sref='dungeon' >Dungeon</label>
+				</div>
+
+				<ui-view></ui-view>
+
+			</div>
+
+
+		</div>
+	</body>
+</html>
+

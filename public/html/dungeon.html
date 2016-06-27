@@ -1,0 +1,21 @@
+<table class="table">
+	<thead>
+		<th>Item Name</th>
+		<th>Value</th>
+	</thead>
+	<tr ng-data="blah" ng-repeat='item in items track by $index' ng-if='item.room === "dungeon"'>
+		<td>{{item.name}}</td>
+		<td><span ng-if="item.value > 0">{{item.value}}</span></td>
+		<td>
+			<button class="delete-button btn btn-danger "ng-click="removeItem($index)">
+				<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+			</button>
+		</td>
+	</tr>
+	<thead>
+		<th> </th>
+		<th>Total Value of This Room:</th>
+		<th>{{totalValue | currency}}</th>
+	</thead>
+</table>
+
